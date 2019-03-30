@@ -1,7 +1,7 @@
 # Express application with Pug templating - Full Stack JavaScript Techdegree
 
 ### Flash Cards application
-This project is built with Express web framework and the Pug templating engine to create a flash cards application.
+This project is built using the Express web framework and the Pug templating engine to create a flash cards application.
 
 ***
 <!-- <img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1550234182/portfolio/interactive-form-1.png" width="400px"><img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1550218646/portfolio/screenshot-padding-github.png" width="50px">
