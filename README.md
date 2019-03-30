@@ -14,7 +14,8 @@ This project is built with Express web framework and the Pug templating engine t
 <!-- To complete this project I created JavaScript classes (Game, Board, Space, Player, Token) to organize the code. Each class, with its constructor function, methods, getters and setters is in its own .js file, and the app.js file handles the interaction with DOM elements. -->
 
 ## Techniques and concepts
-<!-- - JavaScript classes used to create objects and organize code. -->
+- Express web framework
+- Pug templating engine
 
 ## Code example
 <!-- ```javascript
