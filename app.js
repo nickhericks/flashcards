@@ -1,6 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'pug');
 
@@ -14,6 +17,8 @@ app.get('/hello', (req, res) => {
 
 app.post('/hello', (req, res) => {
 	res.render('hello');
+	console.dir(req.body);
+
 });
 
 app.get('/cards', (req, res) => {
