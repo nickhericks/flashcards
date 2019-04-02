@@ -18,29 +18,24 @@ This project is built using the Express web framework and the Pug templating eng
 - Pug templating engine
 
 ## Code example
-<!-- ```javascript
-// Finds Space object to drop Token into, and drops Token.
-playToken(){
-  let spaces = this.board.spaces;
-  let activeToken = this.activePlayer.activeToken;
-  let targetColumn = spaces[activeToken.columnLocation];
-  let targetSpace = null;
-  //
-  for(let space of targetColumn) {
-    if(space.token === null) {
-      targetSpace = space;
-    }
-  }
+```javascript
+const express = require('express');
+const app = express();
 
-  if(targetSpace !== null) {
-    const game = this;
-    game.ready = false;
-    activeToken.drop(targetSpace, function() {
-      game.updateGameState(activeToken, targetSpace);
-    });
-  }
-}
-``` -->
+app.set('view engine', 'pug');
+
+app.get('/', (req, res) => {
+	res.render('index');
+});
+
+app.get('/cards', (req, res) => {
+	res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about whose tomb it is." });
+});
+
+app.listen(3000, () => {
+	console.log('The application is running on localhost:3000');
+});
+```
 
 ## Acknowledgements
 This project was built as part of the [Full Stack JavaScript Techdegree](https://join.teamtreehouse.com/techdegree/) offered by [Treehouse](https://teamtreehouse.com) :raised_hands:
