@@ -14,10 +14,8 @@ app.use(
   (req, res, next) => {
 		req.message = 'This message made it!';
 		console.log("One");
-		const err = new Error('Oh no!!!');
-		err.status = 500;
     // Pass control forward through the app
-    next(err);
+    next();
   },
   (req, res, next) => {
     console.log("One and half");
@@ -90,11 +88,11 @@ app.get('/cards', (req, res) => {
 });
 
 // This middleware runs if no routes above match what was requested.
-// Meaning it grabs all 404 errors and 
-app.use((re, res, next) => {
+// Meaning it grabs all 404 errors and passes them to
+app.use((req, res, next) => {
 	const err = new Error('Not found');
 	err.status = 404;
-	next();
+	next(err);
 });
 
 // Error Handling Middleware (4 parameters)
