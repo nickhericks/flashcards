@@ -9,8 +9,25 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
+// This middleware runs every time a request comes into the app
+app.use(
+  (req, res, next) => {
+		req.message = 'This message made it!';
+		console.log("One");
+		const err = new Error('Oh no!!!');
+    // Pass control forward through the app
+    next(err);
+  },
+  (req, res, next) => {
+    console.log("One and half");
+    console.log(req.message);
+    next();
+  }
+);
+
+// This middleware runs every time a request comes into the app
 app.use((req, res, next) => {
-	console.log('One');
+	console.log('Two');
 	next();
 });
 
@@ -70,6 +87,14 @@ app.post('/hello', (req, res) => {
 app.get('/cards', (req, res) => {
 	res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about whose tomb it is." });
 });
+
+// Error Handling Middleware (4 parameters)
+// Runs if an object gets passed into a next() call
+app.use((err, req, res, next) => {
+	res.locals.error = err;
+	res.render('error');
+});
+
 
 app.listen(3000, () => {
 	console.log('The application is running on localhost:3000');
