@@ -30,9 +30,10 @@ app.set('view engine', 'pug');
 // 	next();
 // });
 
-const 
-
-
+// Import code from index.js file in the 'routes' folder
+const routes = require('./routes')
+// Use code in the index.js file
+app.use(routes);
 
 
 
