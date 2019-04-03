@@ -9,6 +9,14 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
+app.use((req, res, next) => {
+
+	
+});
+
+
+
+
 // When request is made to main url
 app.get('/', (req, res) => {
 	// Assign username cookie to a variable
