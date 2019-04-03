@@ -31,10 +31,11 @@ app.set('view engine', 'pug');
 // });
 
 // Import code from index.js file in the 'routes' folder
-const routes = require('./routes')
+const mainRoutes = require('./routes');
+const cardRoutes = require('./routes/cards');
 // Use code in the index.js file
-app.use(routes);
-
+app.use(mainRoutes);
+app.use('/cards', cardRoutes);
 
 
 // This middleware runs if no routes above match what was requested.
