@@ -15,6 +15,7 @@ app.use(
 		req.message = 'This message made it!';
 		console.log("One");
 		const err = new Error('Oh no!!!');
+		err.status = 500;
     // Pass control forward through the app
     next(err);
   },
@@ -88,10 +89,19 @@ app.get('/cards', (req, res) => {
 	res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about whose tomb it is." });
 });
 
+// This middleware runs if no routes above match what was requested.
+// Meaning it grabs all 404 errors and 
+app.use((re, res, next) => {
+	const err = new Error('Not found');
+	err.status = 404;
+	next();
+});
+
 // Error Handling Middleware (4 parameters)
 // Runs if an object gets passed into a next() call
 app.use((err, req, res, next) => {
 	res.locals.error = err;
+	res.status(err.status);
 	res.render('error');
 });
 
