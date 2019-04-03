@@ -25,6 +25,11 @@ app.get('/', (req, res) => {
 	}
 });
 
+app.post('/goodbye', (req, res) => {
+	res.clearCookie('username');
+	res.redirect('/hello');
+});
+
 // When a GET request is made to the /hello url
 app.get('/hello', (req, res) => {
 	// Assign username cookie to a variable
@@ -42,6 +47,12 @@ app.get('/hello', (req, res) => {
 // When a POST request is made to the /hello url
 app.post('/hello', (req, res) => {
 	// Create a cookie and send it to the client's browser
+	// The value of the cookie is created from the form data
+	// being sent with the POST request, which includes
+	// a field value assigned a name property of 'username'
+	// Using the cookie-parser middleware helps us access
+	// that value within the req.body object being sent
+	// with the request.
 	res.cookie('username', req.body.username);
 	// Redirect user to the main page
 	res.redirect('/');
