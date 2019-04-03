@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const data = require('..data/flashcardData.json')
 
 // This used to be for the '/cards' route but since
 // in the app.js file we are using it as '/cards'
