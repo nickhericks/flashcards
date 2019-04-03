@@ -1,14 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const data = require('..data/flashcardData.json')
+// const data = require("..data/flashcardData.json").data;
+const { data } = require('../data/flashcardData.json')
+// const cards = data.cards;
+const { cards } = data;
 
 // This used to be for the '/cards' route but since
 // in the app.js file we are using it as '/cards'
 // the code below can just refer to the route as '/'
-router.get("/", (req, res) => {
+router.get("/:id", (req, res) => {
   res.render("card", {
-    prompt: "Who is buried in Grant's tomb?",
-    hint: "Think about whose tomb it is."
+    prompt: cards[req.params.id].question,
+    hint: cards[req.params.id].hint
   });
 });
 
