@@ -9,7 +9,10 @@ const { cards } = data;
 // in the app.js file we are using it as '/cards'
 // the code below can just refer to the route as '/'
 router.get("/:id", (req, res) => {
+	// If a query string was sent with the request
+	// that includes a 'side' key, assign it to a variable
 	const side = req.query.side;
+	
 	const id = req.params.id;
 	const text = cards[id][side];
 	const hint = cards[id].hint;
