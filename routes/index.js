@@ -52,6 +52,5 @@ router.post('/hello', (req, res) => {
 	// console.dir(req.body);
 });
 
-
-
+// Export 'router' so it can be accessed by app.js
 module.exports = router;

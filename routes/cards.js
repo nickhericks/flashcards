@@ -6,7 +6,7 @@ const { data } = require('../data/flashcardData.json')
 const { cards } = data;
 
 
-// Create route for when user requests localhost:3000/cards
+// Run route for when user requests localhost:3000/cards
 // that picks a random flashcard id and creates a redirect 
 // that uses that id to make a random card to display
 router.get('/', (req, res) => {
@@ -18,7 +18,8 @@ router.get('/', (req, res) => {
 	res.redirect(`/cards/${flashcardId}`);
 });
 
-// 
+
+// Run when requested route includes an id after /cards/__
 router.get("/:id", (req, res) => {
 
 	// If a query string was sent with the request
