@@ -22,17 +22,25 @@ router.get("/:id", (req, res) => {
 	// Store a reference to the hint as a variable
 	const hint = cards[id].hint;
 
-	const otherSide = (side === 'question') ? 'answer' : 'question';
-	
 	// Put the text variable in an object
 	// that can be passed into the template
-	const templateData = { text, hint, id, side, otherSide };
+	const templateData = { id, text };
 
-	// Only display the hint if the 'question' side
-	// is requested, not when 'answer' side is requested
-	// if (side === 'question'){
-	// 	templateData.hint = hint;
-	// }
+	// If the 'question' side is requested,
+	// create a 'hint' property so that it can be displayed
+	// and also create/assign new properties related to link
+	if (side === 'question'){
+		templateData.hint = hint;
+		templateData.sideToShow = 'answer';
+		templateData.sideToShowDisplay = 'Answer';
+	} 
+	// If the 'answer' side is requested,
+	// no 'hint' property is created since we don't want to show it.
+	// Also create/assign new properties related to link
+	else if (side === 'answer') {
+		templateData.sideToShow = 'question';
+		templateData.sideToShowDisplay = 'Question';
+	}
 
   res.render('card', templateData);
 });
