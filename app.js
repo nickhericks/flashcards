@@ -9,26 +9,6 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
-// // This middleware runs every time a request comes into the app
-// app.use(
-//   (req, res, next) => {
-// 		req.message = 'This message made it!';
-// 		console.log("One");
-//     // Pass control forward through the app
-//     next();
-//   },
-//   (req, res, next) => {
-//     console.log("One and half");
-//     console.log(req.message);
-//     next();
-//   }
-// );
-
-// // This middleware runs every time a request comes into the app
-// app.use((req, res, next) => {
-// 	console.log('Two');
-// 	next();
-// });
 
 // Import code from index.js file in the 'routes' folder
 const mainRoutes = require('./routes');

@@ -32,7 +32,7 @@ router.get("/:id", (req, res) => {
 	}
 
 
-
+	const name = req.cookies.username
 
 	// Use the id variable as the index of the card
 	// and the side variable to choose the
@@ -44,7 +44,7 @@ router.get("/:id", (req, res) => {
 
 	// Put the text variable in an object
 	// that can be passed into the template
-	const templateData = { id, text };
+	const templateData = { id, text, name };
 
 	// If the 'question' side is requested,
 	// create a 'hint' property so that it can be displayed
