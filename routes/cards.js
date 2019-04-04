@@ -5,10 +5,22 @@ const { data } = require('../data/flashcardData.json')
 // const cards = data.cards;
 const { cards } = data;
 
+
+
+router.get('/', (req, res) => {
+	// Get total number of flashcards from flashcardData.json file
+	const numberOfCards = cards.length;
+	// Generate random number from 0 to numberOfCards
+	const flashcardId = Math.floor(Math.random() * numberOfCards);
+	// 
+	res.redirect(`/cards/${flashcardId}?side=question`);
+});
+
 // This used to be for the '/cards' route but since
 // in the app.js file we are using it as '/cards'
 // the code below can just refer to the route as '/'
 router.get("/:id", (req, res) => {
+
 	// If a query string was sent with the request
 	// that includes a 'side' key, assign it to a variable
 	const side = req.query.side;
