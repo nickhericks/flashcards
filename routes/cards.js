@@ -67,4 +67,5 @@ router.get("/:id", (req, res) => {
   res.render('card', templateData);
 });
 
+// Export 'router' so it can be accessed by app.js
 module.exports = router;
