@@ -27,6 +27,8 @@ router.get("/:id", (req, res) => {
 	// Access id from the route parameter and assign it a variable
 	const id = req.params.id;
 
+	// If side not provided in query string, set it to question
+	// and redirect back to this same route with the query string included
 	if ( !side ) {
 		res.redirect(`/cards/${id}?side=question`)
 	}
