@@ -1,3 +1,4 @@
+// Add client-side JavaScript for the 'show hint' button
 document.addEventListener('DOMContentLoaded', (e) => {
 	const hint = document.querySelector('.hint');
 	if (hint) {
