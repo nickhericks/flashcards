@@ -47,7 +47,7 @@ router.get("/:id", (req, res) => {
 
 	// Put the text variable in an object
 	// that can be passed into the template
-	const templateData = { id, text, name };
+	const templateData = { id, text, name, side };
 
 	// If the 'question' side is requested,
 	// create a 'hint' property so that it can be displayed

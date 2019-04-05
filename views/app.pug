@@ -2,10 +2,10 @@ extends layout
 
 block main
 	section.namecard
-		.namecard-login
+		.namecard-hello
 			if name
 				p.namecard-greeting Welcome, #{name}!
-				form.namecard-exit(action='/goodbye', methods='POST')
+				form.namecard-exit(action='/goodbye', method='POST')
 					button(type='submit')
 						img(src='/static/img/close.svg')
 			else
