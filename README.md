@@ -4,8 +4,7 @@
 This project is built using the Express web framework and the Pug templating engine to create a flash cards application.
 
 ***
-<!-- <img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1550234182/portfolio/interactive-form-1.png" width="400px"><img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1550218646/portfolio/screenshot-padding-github.png" width="50px">
-<img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1550234182/portfolio/interactive-form-2.png" width="400px"> -->
+<img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1554483544/portfolio/expressFlashcards.png" width="500px">
 
 ## View project
 <!-- :mag: Live version available at [nickhericks.github.io/flashcards/](https://nickhericks.github.io/flashcards/) -->
