@@ -6,11 +6,14 @@ This project is built using the Express web framework and the Pug templating eng
 ***
 <img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1554483544/portfolio/expressFlashcards.png" width="500px">
 
-## View project
-<!-- :mag: Live version available at [nickhericks.github.io/flashcards/](https://nickhericks.github.io/flashcards/) -->
+## To view project
+1. Download project.
+2. Run 'npm install' in the command line.
+3. Run 'npm start' in the command line.
+4. Go to 'localhost:3000' in your browser.
 
 ## Project objective
-<!-- To complete this project I created JavaScript classes (Game, Board, Space, Player, Token) to organize the code. Each class, with its constructor function, methods, getters and setters is in its own .js file, and the app.js file handles the interaction with DOM elements. -->
+This project was built as I was learning about the Express web framework and the Pug templating engine. Through this project I learned about the request and response objects, body-parser, routes, templates, middleware, cookies (cookie-parser) redirects, error handling, modularizing routes, route parameters and query strings, serving static assets with a static server, and much more. :)
 
 ## Techniques and concepts
 - Express web framework
@@ -19,20 +22,22 @@ This project is built using the Express web framework and the Pug templating eng
 ## Code example
 ```javascript
 const express = require('express');
-const app = express();
+const router = express.Router();
 
-app.set('view engine', 'pug');
-
-app.get('/', (req, res) => {
-	res.render('index');
-});
-
-app.get('/cards', (req, res) => {
-	res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about whose tomb it is." });
-});
-
-app.listen(3000, () => {
-	console.log('The application is running on localhost:3000');
+// When request is made to main url
+router.get('/', (req, res) => {
+	// Assign username cookie to a variable
+	const name = req.cookies.username;
+	// If there is a username cookie
+	if (name) {
+		// Display the index.pug template and pass it the name variable
+		res.render("index", { name });
+	}
+	// If no cookie
+	else {
+		// Redirect to /hello url
+		res.redirect('/hello');
+	}
 });
 ```
 
